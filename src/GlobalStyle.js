@@ -1,11 +1,27 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
 
-export const GlobalStyle = createGlobalStyle`body {
+export const GlobalStyle = createGlobalStyle`
+:root {
+    --main-text-color: #121417;
+    --secondary-text-color: #12141780;
+    
+    --white-color: #FFFFFF;
+    --accent-color: #3470FF;
+    --hover-color: #0B44CD;
+    --active-link--color: #F3B249;
+
+    --main-font: 'Manrope', sans-serif;
+
+    --backdrop-color: #12141780;
+    --active-link-bg-color: #E3F3FF;
+}
+
+body {
   color: #121417;
   height: 100%;
-  font-family: 'Manrope', sans-serif;
-   
+  font-family: var(--main-font);
+    
 }
 
 
