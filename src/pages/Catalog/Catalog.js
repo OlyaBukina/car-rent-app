@@ -1,7 +1,7 @@
 import { getAllAdverts } from 'Api/fetchApi';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { CatalogContainer, LoadMoreBtn } from './Catalog.styled';
+import { Wrapper, Container, LoadMoreBtn } from './Catalog.styled';
 import AdvertsCard from 'components/AdvertsCard/AdvertsCard';
 import { useFavorites } from 'hooks/useFavorites';
 
@@ -25,8 +25,8 @@ const Catalog = () => {
 
   const { favorites, toggleFavorite } = useFavorites();
   return (
-    <>
-      <CatalogContainer>
+    <Wrapper>
+      <Container>
         {advertsList.map(item => (
           <AdvertsCard
             key={item.id}
@@ -35,11 +35,11 @@ const Catalog = () => {
             toggleFavorite={() => toggleFavorite(item)}
           />
         ))}
-      </CatalogContainer>
+      </Container>
       {showBtnLoadmore && (
         <LoadMoreBtn onClick={handleChangePage}>Load more</LoadMoreBtn>
       )}
-    </>
+    </Wrapper>
   );
 };
 

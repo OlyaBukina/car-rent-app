@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import PropTypes from 'prop-types';
 
 const {
   RentalContainer,
@@ -31,3 +32,9 @@ const RentalConditions = ({ rentalConditions, mileage, rentalPrice }) => {
   );
 };
 export default RentalConditions;
+
+RentalConditions.propTypes = {
+  rentalConditions: PropTypes.string.isRequired,
+  mileage: PropTypes.number.isRequired,
+  rentalPrice: PropTypes.number.isRequired,
+};

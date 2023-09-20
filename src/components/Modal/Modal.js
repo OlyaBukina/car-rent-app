@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
@@ -20,7 +20,7 @@ import {
   RentalCarBtn,
 } from './Modal.styled';
 import icons from '../../images/icons.svg';
-import { useMemo } from 'react';
+import noImage from '../../images/no-image.jpg';
 import RentalConditions from './RentalConditions/RentalConditions';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -77,7 +77,7 @@ const Modal = ({ onClose, advertInfo }) => {
         </CloseModalBtn>
 
         <ScrollContainer>
-          <AdvertImage src={img} alt={description} />
+          <AdvertImage src={img ? img : noImage} alt={description} />
           <MainInfo>
             {make} <Model>{model}</Model>, {year}
           </MainInfo>
@@ -120,9 +120,9 @@ const Modal = ({ onClose, advertInfo }) => {
   );
 };
 
+export default Modal;
+
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   advertInfo: PropTypes.object.isRequired,
 };
-
-export default Modal;

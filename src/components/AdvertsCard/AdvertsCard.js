@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   CardWrapper,
   CardImage,
@@ -14,6 +15,7 @@ import {
 } from './AdvertsCard.styled';
 import icons from '../../images/icons.svg';
 import Modal from '../Modal/Modal';
+import noImage from '../../images/no-image.jpg';
 
 const AdvertsCard = ({ advertInfo, isFavorite, toggleFavorite }) => {
   const [showModal, setShowModal] = useState(false);
@@ -31,7 +33,6 @@ const AdvertsCard = ({ advertInfo, isFavorite, toggleFavorite }) => {
     accessories,
     id,
   } = advertInfo;
-
   const [city, country] = useMemo(
     () => address.split(', ').splice(1, 2),
     [address]
@@ -45,7 +46,7 @@ const AdvertsCard = ({ advertInfo, isFavorite, toggleFavorite }) => {
     <>
       {showModal && <Modal onClose={toggleModal} advertInfo={advertInfo} />}
       <CardWrapper>
-        <CardImage src={img} alt={description} />
+        <CardImage src={img ? img : noImage} alt={description} />
         <MainInfoWrapper>
           <MainInfo>
             {make} <Model>{model}</Model>, {year}
@@ -71,5 +72,10 @@ const AdvertsCard = ({ advertInfo, isFavorite, toggleFavorite }) => {
     </>
   );
 };
-
 export default AdvertsCard;
+
+AdvertsCard.propTypes = {
+  advertInfo: PropTypes.object.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
+  toggleFavorite: PropTypes.func.isRequired,
+};

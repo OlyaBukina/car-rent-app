@@ -14,15 +14,3 @@ export const getAllAdverts = async page => {
     throw new Error('Oops, something goes wrong!');
   }
 };
-
-// export const getAdvertById = async id => {
-//   try {
-//     return await axios.get(`adverts?`, {
-//       params: {
-//         id,
-//       },
-//     });
-//   } catch (error) {
-//     throw new Error('Oops, something goes wrong!');
-//   }
-// };

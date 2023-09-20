@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const CatalogContainer = styled.div`
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+`;
+
+export const Container = styled.div`
   margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
